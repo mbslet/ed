@@ -43,5 +43,32 @@ int destroi_fila(){
 }
 
 int fila_cheia(){
-	
+	return 0;
+}
+
+int fila_vazia(){
+
+	if(fila == NULL) return 1;
+	return 0;
+}
+
+int tamanho_fila(){
+	int count = 0;
+	celula * temp = *fila;
+
+	while (fila->prox != NULL)
+	{
+		count++;
+		temp = temp->prox;
+	}
+	return count;
+}
+
+int imprime_fila(){
+	for(int i = 0; i < 6*tamanho_fila(); i++) printf("-"); //linha superior
+    puts("");
+	while(fila->prox != NULL) printf("| %03d | ", fila->dado); //conteudo
+    puts(""); 
+	for(int i = 0; i < 6*tamanho_fila(); i++) printf("-"); //linha inferior
+    puts("");
 }
