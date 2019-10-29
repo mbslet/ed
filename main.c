@@ -1,12 +1,14 @@
 #include<stdio.h>
 #include "fila_int_tam_fixo.h"
+//#include "fila_int_circular.h"
+//#include "fila_int_le_circular.h"
 
 int main(){
     int opcao;
     
     while (1)
     {
-        printf("\n\n 1 - Inserir n elementos na fila\n 2 - Remover n elementos na fila\n 3 - Imprimir a fila\n 4 - Reiniciar a fila\n 5 - Sair")
+        printf("\n\n 1 - Inserir n elementos na fila\n 2 - Remover n elementos na fila\n 3 - Imprimir a fila\n 4 - Reiniciar a fila\n 5 - Sair\n");
         scanf("%d", &opcao);
 
         switch (opcao)
@@ -14,7 +16,7 @@ int main(){
         case 1:
             inicializa_fila();
             int num, elem, cont = 0;
-            printf("“Digite quantos elementos você deseja inserir:")
+            printf("Digite quantos elementos você deseja inserir:");
             scanf("%d", &num);
             
             for(int i = 0; i < num; i++){
@@ -26,15 +28,38 @@ int main(){
                 }
                 enfileira_fila(elem);
                 cont++;
+                                
                 if(fila_cheia()){
-                    printf("%d elementos foram inseridos na fila, mas %d não couberam", cont, (num-cont));
+                    printf("%d elementos foram inseridos na fila, mas %d não couberam\n", cont, (num-cont));
+                    break;
                 }
             }
             break;
+        case 2:
+            puts("Digite quantos elementos você deseja remover:");
+            scanf(" %d", &num);
+            for (int i = 0; i < num; i++){
+                if(desenfileira_fila(&elem)) printf("Elemento removido: %03d\n", elem);
+                else puts("Não há elementos para serem removidos");
+            }
+            
+            break;
         
+        case 3:
+            imprime_fila();
+            break;
+        
+        case 4:
+            destroi_fila();
+            break;
+
         default:
             break;
         }
+        if(opcao == 5) break;
     }
-    
+
+    return 0;
 }
+
+// gcc main.c -o main fila_int_tam_fixo.c
