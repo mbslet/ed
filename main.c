@@ -28,6 +28,7 @@ int main(){
                 }
                 enfileira_fila(elem);
                 cont++;
+                                
                 if(fila_cheia()){
                     printf("%d elementos foram inseridos na fila, mas %d não couberam\n", cont, (num-cont));
                     break;

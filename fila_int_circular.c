@@ -2,7 +2,7 @@
 #include<stdio.h>
 
 static int *fila;
-static int p, u, n = 5;
+static int p, u, n = 6;
 //Fila circular com redimensionamento.
 
 

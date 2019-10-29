@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "fila_int_le_circular.h": "c",
+        "fila_int_circular.h": "c"
+    }
+}
