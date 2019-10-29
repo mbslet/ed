@@ -54,11 +54,9 @@ int fila_vazia(){
 
 int tamanho_fila(){
 	int count = 0;
-
 	celula * temp = fila->prox;
 
 	while (temp != fila)
-
 	{
 		count++;
 		temp = temp->prox;
@@ -88,5 +86,5 @@ int imprime_fila(){
 	{
 		printf(" ");
 	}puts("u");
-}	
-
+	
+}
