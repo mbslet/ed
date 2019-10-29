@@ -25,13 +25,12 @@ int main(){
                 if(elem < 0 || elem > 999){
                     printf("Elemento inválido, insira um elemento maior que 0 e menor que 999:");
                     scanf("%d", &elem);
-                }
-                enfileira_fila(elem);
-                cont++;
-                                
-                if(fila_cheia()){
+                }//printf("%d\n", i);
+                if(enfileira_fila(elem)){
+                    cont++;
+                }else{
                     printf("%d elementos foram inseridos na fila, mas %d não couberam\n", cont, (num-cont));
-                    break;
+                    break;   
                 }
             }
             break;
