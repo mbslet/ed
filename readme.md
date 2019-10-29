@@ -5,7 +5,7 @@ Esse repositório destina-se aos estudos, documentação e implementação dos c
 ## Mantenedores
 
 | Nome | E-mail |
-| --- | --- |
+| Philipe Serafim | philipeserafim@gmail.com |
 | Letícia Meneses | lmbs.geo@gmail.com |
 
 ## 1. Módulo 1
