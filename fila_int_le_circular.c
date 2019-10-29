@@ -15,7 +15,7 @@ int inicializa_fila(){
 return 1;
 }
 
-int enfileira(int x){
+int enfileira_fila(int x){
 	celula *novo = malloc(sizeof(celula));
 	if(novo == NULL) return 0;
 	novo->prox = fila->prox;
@@ -26,7 +26,7 @@ return 1;
 }
 
 
-int desenfileira(int *x){
+int desenfileira_fila(int *x){
 	if(fila->prox == fila) return 0;
 	celula * lixo = fila->prox;
 	*x = lixo->dado;
@@ -37,7 +37,7 @@ return 1;
 
 int destroi_fila(){
 	int elem;
-	while(desenfileira(&elem));
+	while(desenfileira_fila(&elem));
 	free(fila);
 	return 1;
 }
@@ -54,9 +54,9 @@ int fila_vazia(){
 
 int tamanho_fila(){
 	int count = 0;
-	celula * temp = *fila;
+	celula * temp = fila->prox;
 
-	while (fila->prox != NULL)
+	while (temp != fila)
 	{
 		count++;
 		temp = temp->prox;
@@ -65,10 +65,26 @@ int tamanho_fila(){
 }
 
 int imprime_fila(){
+
+	celula * temp = fila->prox;
+	int posicao = 2;
+
 	for(int i = 0; i < 6*tamanho_fila(); i++) printf("-"); //linha superior
     puts("");
-	while(fila->prox != NULL) printf("| %03d | ", fila->dado); //conteudo
-    puts(""); 
+	while(temp != fila) {
+		printf("| %03d ", temp->dado); //conteudo
+		temp = temp->prox;
+	}
+    puts("|"); 
 	for(int i = 0; i < 6*tamanho_fila(); i++) printf("-"); //linha inferior
     puts("");
+
+	printf("  p");
+	temp = fila->prox;
+	
+	for (int i = 0; i < 6*tamanho_fila(); i++)
+	{
+		printf(" ");
+	}puts("u");
+	
 }
