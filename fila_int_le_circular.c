@@ -15,7 +15,7 @@ int inicializa_fila(){
 return 1;
 }
 
-int enfileira(int x){
+int enfileira_fila(int x){
 	celula *novo = malloc(sizeof(celula));
 	if(novo == NULL) return 0;
 	novo->prox = fila->prox;
@@ -26,7 +26,7 @@ return 1;
 }
 
 
-int desenfileira(int *x){
+int desenfileira_fila(int *x){
 	if(fila->prox == fila) return 0;
 	celula * lixo = fila->prox;
 	*x = lixo->dado;
@@ -37,7 +37,7 @@ return 1;
 
 int destroi_fila(){
 	int elem;
-	while(desenfileira(&elem));
+	while(desenfileira_fila(&elem));
 	free(fila);
 	return 1;
 }
@@ -54,7 +54,7 @@ int fila_vazia(){
 
 int tamanho_fila(){
 	int count = 0;
-	celula * temp = *fila;
+	celula * temp = fila;
 
 	while (fila->prox != NULL)
 	{

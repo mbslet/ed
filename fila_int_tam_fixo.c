@@ -18,7 +18,8 @@ int inicializa_fila(){
 //2. Inserção na fila
 //Deve inserir um novo elemento na fila, retornando 1 se o elemento foi inserido com sucesso, 0 caso contrário.
 int enfileira_fila(int x){
-    if(u == n) return 0;
+    int fila_cheia();
+    if(fila_cheia()) return 0;
     fila[u] = x;
     u++;
     return 1;
@@ -36,7 +37,7 @@ int desenfileira_fila(int *x){
 //4. Verificação se a fila está cheia
 //Deve retornar 1 se a fila estiver cheia, 0 caso contr´ario.
 int fila_cheia(){
-    if (u == p) return 1;
+    if ((u + 1) % n == p) return 1;
     return 0;
 }
 
@@ -60,17 +61,18 @@ int tamanho_fila(){
 //-----------------------------------------------------------
 //   p                       u
 int imprime_fila(){
-    for(int i = 0; i < n; i++) printf("-");
+    for(int i = 0; i < n*6; i++) printf("-");
     puts("");
-
-    for(int i = 0; i < n; i++) printf("| %03d | ", fila[i]);
+    for(int i = 0; i < n; i++) printf("| %03d ", fila[i]);
+    puts("|");
+    for(int i = 0; i < n*6; i++) printf("-");
     puts("");
-
-    for(int i = 0; i < n; i++) printf("-");
-    puts("");
+    
+    for(int i = 0; i < (p+1)*5; i++)printf(" ");
+    printf("p");
 }
 int destroi_fila(){
     int aux;
-    while(desenfileira_fila(aux));
+    while(desenfileira_fila(&aux));
     return 1;
 }

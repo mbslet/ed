@@ -10,6 +10,6 @@ int fila_vazia();
 int tamanho_fila();
 int imprime_fila();
 
-int redimensiona();
+int redimensiona_fila();
 
 #endif
