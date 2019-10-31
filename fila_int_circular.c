@@ -2,7 +2,7 @@
 #include<stdio.h>
 
 static int *fila;
-static int p, u, n = 6;
+static int p, u, n = 5;
 //Fila circular com redimensionamento.
 
 
@@ -20,11 +20,13 @@ int inicializa_fila(){
 int enfileira_fila(int x){
     int fila_cheia();
     int redimensiona_fila();
-    fila[u++] = x;
+
     if (fila_cheia()){ //se estiver cheia dobra o tamanho da fila
         redimensiona_fila();
         printf("Fila cheia, redimensionamento automático\n");
     }
+    fila[u++] = x;
+    if(u == n) u = 0;
     return 1;
 }
 //3. Remoção da fila
@@ -66,16 +68,24 @@ int tamanho_fila(){
 //p                         u
 int imprime_fila(){
     int tamanho_fila();
-    for(int i = 0; i < 6*tamanho_fila(); i++) printf("-"); //linha superior
+    for(int i = 0; i < 6 * n; i++) printf("-"); //linha superior
     puts("");
-    for(int i = 0; i < tamanho_fila(); i++) printf("| %03d ", fila[i]); //conteudo
+    for(int i = 0; i < n; i++) printf("| %03d ", fila[i]); //conteudo
     puts("|");
-    for(int i = 0; i < 6*tamanho_fila(); i++) printf("-"); //linha inferior
+    for(int i = 0; i < 6 * n; i++) printf("-"); //linha inferior
     puts("");
 
 //imprimir p e u
+    printf("   ");
+for (int i = 0; i < n; i++){
+    if(i == p) printf("p");
+    else if (i == u)printf("u");
+    else printf(" ");
 
-    int i, u;
+    printf("     ");
+}
+
+/*    int i, u;
     char pp, uu;
 
     if(p<=u){
@@ -108,12 +118,11 @@ int imprime_fila(){
         }
     }
 
-    printf("\n");
+    printf("\n");*/
 }
 
 
 
-}
 
 int redimensiona_fila(){
     int i, j;
