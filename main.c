@@ -1,11 +1,12 @@
 #include<stdio.h>
-#include "fila_int_tam_fixo.h"
+//#include "fila_int_tam_fixo.h"
 //#include "fila_int_circular.h"
-//#include "fila_int_le_circular.h"
+#include "fila_int_le_circular.h"
 
 int main(){
     int opcao;
-    
+    inicializa_fila();
+    int num, elem, cont = 0;
     while (1)
     {
         printf("\n\n 1 - Inserir n elementos na fila\n 2 - Remover n elementos na fila\n 3 - Imprimir a fila\n 4 - Reiniciar a fila\n 5 - Sair\n");
@@ -14,8 +15,8 @@ int main(){
         switch (opcao)
         {
         case 1:
-            inicializa_fila();
-            int num, elem, cont = 0;
+
+            
             printf("Digite quantos elementos você deseja inserir:");
             scanf("%d", &num);
             
@@ -25,13 +26,12 @@ int main(){
                 if(elem < 0 || elem > 999){
                     printf("Elemento inválido, insira um elemento maior que 0 e menor que 999:");
                     scanf("%d", &elem);
-                }
-                enfileira_fila(elem);
-                cont++;
-                                
-                if(fila_cheia()){
+                }//printf("%d\n", i);
+                if(enfileira_fila(elem)){
+                    cont++;
+                }else{
                     printf("%d elementos foram inseridos na fila, mas %d não couberam\n", cont, (num-cont));
-                    break;
+                    break;   
                 }
             }
             break;
@@ -62,4 +62,4 @@ int main(){
     return 0;
 }
 
-// gcc main.c -o main fila_int_tam_fixo.c
+// gcc main.c -o main fila_int_tam_fixo.c1
