@@ -72,6 +72,47 @@ int imprime_fila(){
     puts("|");
     for(int i = 0; i < 6*tamanho_fila(); i++) printf("-"); //linha inferior
     puts("");
+
+//imprimir p e u
+
+    int i, u;
+    char pp, uu;
+
+    if(p<=u){
+        pp = 'p';
+        i = p;
+        uu = 'u';
+        u = u;
+    }else{
+        pp = 'u';
+        i = u;
+        uu = 'p';
+        u = p;
+    }
+
+    for(int j = 0;j <= u; j++){
+        if(j == i){
+            printf("   %c", pp);
+            for(int k = j; k <= n; k++){
+                if(k == u){
+                    printf("%c", uu);
+                }
+                else{
+                    printf("      ");
+                }
+            }
+            break;
+        }
+        else{
+            printf("      ");
+        }
+    }
+
+    printf("\n");
+}
+
+
+
 }
 
 int redimensiona_fila(){
